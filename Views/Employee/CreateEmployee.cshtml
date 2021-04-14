@@ -1,7 +1,103 @@
-﻿
+﻿@model CinemaPortalCore.Models.Employee
 @{
     ViewData["Title"] = "CreateEmployee";
 }
 
-<h1>CreateEmployee</h1>
+<title>Create Employee</title>
+<body>
+
+    <!-- Container for the Form -->
+    <div class="container">
+
+        <div class="page-header">
+            <br>
+            <img src="images/register.png" class="mx-auto d-block">
+            <h1 class="text-center mt-4">Create Employee page</h1>
+        </div>
+
+        <!-- Form -->
+        <form class="form-group needs-validation" asp-action="Create" method="POST" novalidate>
+
+            <!-- TOP ROW for the form is firtname and last name -->
+            <div class="form-row">
+                <div class="col-6 mb-3 form-group input-group">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" id="inputGroupPrepend" asp-for="FirstName"></label>
+                    </div>
+                    <input class="form-control" id="validationTooltip" asp-for="FirstName" placeholder="Firstname" required>
+                    <div class="invalid-feedback">
+                        You cannot Leave This field Empty.
+                    </div>
+                </div>
+                <div class="col-6 form-group input-group">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" id="inputGroupPrepend" asp-for="Surname"></label>
+                    </div>
+                    <input class="form-control" type="text" name="surname" asp-for="Surname" placeholder="Lastname" required>
+                    <div class="invalid-feedback">
+                        You cannot Leave This field Empty.
+                    </div>
+                </div>
+            </div>
+            <!-- END TOP ROW -->
+
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" id="inputGroupPrepend" asp-for="Jobrole"></label>
+                </div>
+                <select class="custom-select" name="jobrole" asp-for="Jobrole" required>
+                    <option value="">Select the Job Role</option>
+                    <option value="employee">Employee</option>
+                    <option value="supervisor">Supervisor</option>
+                    <option value="manager">Manager</option>
+                </select>
+                <div class="invalid-feedback">Please Select a Jobe Role</div>
+            </div>
+
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" id="inputGroupPrepend" asp-for="Username"></label>
+                </div>
+                <input class="form-control" type="text" name="username" asp-for="Username" placeholder="Username" required>
+                <div class="invalid-feedback">
+                    You cannot Leave This field Empty.
+                </div>
+            </div>
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" id="inputGroupPrepend" asp-for="Password"></label>
+                </div>
+                <input class="form-control" type="password" name="password" asp-for="Password" placeholder="Password" required>
+                <div class="invalid-feedback">
+                    You cannot Leave This field Empty.
+                </div>
+            </div>
+
+
+
+            <!-- PLace holder for password confirmation-->
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" id="inputGroupPrepend">Password Confirmation</label>
+                </div>
+                <input class="form-control" type="password" id="passwordConfirm" name="passwordConfirm" placeholder="Password Confirmation" required>
+                <div class="invalid-feedback">
+                    You cannot Leave This field Empty.
+                </div>
+            </div>
+            
+
+
+            <button class="form-control" type="submit" value="create">Create Employee</button>
+        </form>
+        <!-- End Form -->
+
+    </div>
+    </div>
+
+    @section Scripts
+    { 
+        <script type="text/javascript" src="~/js/ValidateEmptyFields.js"></script>
+    }
+</body>
 
