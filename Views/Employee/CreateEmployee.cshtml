@@ -4,7 +4,6 @@
 }
 
 <title>Create Employee</title>
-<body>
 
     <!-- Container for the Form -->
     <div class="container">
@@ -16,7 +15,7 @@
         </div>
 
         <!-- Form -->
-        <form class="form-group needs-validation" asp-action="Create" method="POST" novalidate>
+        <form class="form-group needs-validation" asp-action="CreateEmployee" method="POST" novalidate>
 
             <!-- TOP ROW for the form is firtname and last name -->
             <div class="form-row">
@@ -76,7 +75,7 @@
 
 
             <!-- PLace holder for password confirmation-->
-            <div class="form-group input-group">
+            @*<div class="form-group input-group">
                 <div class="input-group-prepend">
                     <label class="input-group-text" id="inputGroupPrepend">Password Confirmation</label>
                 </div>
@@ -84,7 +83,7 @@
                 <div class="invalid-feedback">
                     You cannot Leave This field Empty.
                 </div>
-            </div>
+            </div>*@
             
 
 
@@ -93,11 +92,8 @@
         <!-- End Form -->
 
     </div>
-    </div>
 
     @section Scripts
     { 
         <script type="text/javascript" src="~/js/ValidateEmptyFields.js"></script>
     }
-</body>
-

@@ -17,8 +17,20 @@ namespace CinemaPortalCore.Controllers
             _database = database;
         }
 
+        // Create Employee View
         public IActionResult CreateEmployee()
         {
+            return View();
+        }
+
+        // Create employee form action
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult CreateEmployee(Employee emp)
+        {
+            _database.Employees.Add(emp);
+            _database.SaveChanges();
+
             return View();
         }
 
