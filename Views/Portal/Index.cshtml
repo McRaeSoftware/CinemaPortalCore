@@ -3,5 +3,24 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<body>
 
+    <div class="page-header text-center mt-4">
+        <h1>Navigation</h1>
+    </div>
+
+    <div class="container mt-5 mb-5">
+        <!-- Manager Access Required -->
+        <div class="row">
+            <div class="col-md-6 mt-5">
+                <a class="btn btn-outline-info btn-block" asp-controller="Employee" asp-action="CreateEmployee">Create Employee</a>
+            </div>
+
+            <!-- Manager Access Required -->
+            <div class="col-md-6 mt-5">
+                <a class="btn btn-outline-info btn-block" asp-controller="Employee" asp-action="ManageEmployee">Manage Employee</a>
+            </div>
+        </div>
+
+    </div>
+</body>

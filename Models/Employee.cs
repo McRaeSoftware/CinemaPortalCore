@@ -11,5 +11,6 @@ namespace CinemaPortalCore.Models
         [Key]
         public int Employee_ID { get; set; }
         public string Username { get; set; }
+        public string Jobrole { get; set; }
     }
 }
