@@ -8,36 +8,34 @@ using System.Threading.Tasks;
 
 namespace CinemaPortalCore.Controllers
 {
-    public class EmployeeController : Controller
+    public class MovieController : Controller
     {
         private readonly CinemaPortalCoreDbContext _database;
 
-        public EmployeeController(CinemaPortalCoreDbContext database)
+        public MovieController(CinemaPortalCoreDbContext database)
         {
             _database = database;
         }
 
-        // Create Employee View
-        public IActionResult CreateEmployee()
+        public IActionResult Index()
+        {
+            IEnumerable<Movie> movieList = _database.Movies;
+            return View(movieList);
+        }
+
+        public IActionResult Create()
         {
             return View();
         }
 
-        // Create employee form action
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult CreateEmployee(Employee employee)
+        public IActionResult Create(Movie movie)
         {
-            _database.Employees.Add(employee);
+            _database.Movies.Add(movie);
             _database.SaveChanges();
 
             return View();
-        }
-
-        public IActionResult ManageEmployee()
-        {
-            IEnumerable<Employee> employeeList = _database.Employees;
-            return View(employeeList);
         }
     }
 }

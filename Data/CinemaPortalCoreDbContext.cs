@@ -15,5 +15,7 @@ namespace CinemaPortalCore.Data
         }
 
         public DbSet<Employee> Employees{ get; set; }
+
+        public DbSet<Movie> Movies { get; set; }
     }
 }
