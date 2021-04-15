@@ -17,25 +17,25 @@ namespace CinemaPortalCore.Controllers
             _database = database;
         }
 
-        public IActionResult Index()
-        {
-            IEnumerable<Movie> movieList = _database.Movies;
-            return View(movieList);
-        }
-
-        public IActionResult Create()
+        public IActionResult CreateMovie()
         {
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Movie movie)
+        public IActionResult CreateMovie(Movie movie)
         {
             _database.Movies.Add(movie);
             _database.SaveChanges();
 
             return View();
+        }
+
+        public IActionResult ManageMovie()
+        {
+            IEnumerable<Movie> movieList = _database.Movies;
+            return View(movieList);
         }
     }
 }

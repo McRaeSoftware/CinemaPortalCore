@@ -1,0 +1,120 @@
+﻿@*
+    Description: form used to insert ne movies into the database.
+
+    Author: David McRae
+*@
+@model CinemaPortalCore.Models.Movie
+
+<div class="container">
+    <div class="page-header">
+        <h1>Create Movie Page</h1>
+    </div>
+
+    <div class="container">
+
+        <form class="form-group needs-validation" method="POST" asp-action="CreateMovie" novalidate>
+
+            <div class="form-group input-group" form-group-lg>
+                <div class="input-group-prepend">
+                    <label class="input-group-text" id="inputGroupPrepend" asp-for="Title"></label>
+                </div>
+                <input class="form-control" type="text" asp-for="Title" placeholder="Title" required>
+            </div>
+
+            <div class="form-group input-group" form-group-lg>
+                <div class="input-group-prepend">
+                    <label class="input-group-text" id="inputGroupPrepend" asp-for="Video"></label>
+                </div>
+                <input class="form-control" type="text" asp-for="Video" placeholder="Please paste the Youtube URL into this field" required>
+            </div>
+
+            <div class="form-group input-group" form-group-lg>
+                <div class="input-group-prepend">
+                    <label class="input-group-text" id="inputGroupPrepend" asp-for="Image"></label>
+                </div>
+                <input class="btn btn-outline-light" type="file" asp-for="Image" placeholder="~/images/poster.jpg" required>
+            </div>
+
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" id="inputGroupPrepend" asp-for="Description"></label>
+                </div>
+                <br />
+                <textarea class="form-control" type="text" asp-for="Description" placeholder="Description" rows="5" required></textarea>
+            </div>
+
+            <div class="form-group input-group form-group-lg">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" id="inputGroupPrepend" asp-for="ReleaseDate"></label>
+                </div>
+                <input class="form-control" type="date" asp-for="ReleaseDate" placeholder="Release Date" required>
+            </div>
+
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" id="inputGroupPrepend" asp-for="AgeRating"></label>
+                </div>
+                <select class="custom-select" asp-for="AgeRating" required>
+                    <option value="">Please Select a Star Rating</option>
+                    <option value="U">U</option>
+                    <option value="PG">PG</option>
+                    <option value="12A">12A</option>
+                    <option value="15">15</option>
+                    <option value="18">18</option>
+                </select>
+                <div class="invalid-feedback">Please Select an Age rating</div>
+            </div>
+
+            <div class="form-group input-group" form-group-lg>
+                <div class="input-group-prepend">
+                    <label class="input-group-text" id="inputGroupPrepend" asp-for="RunTime"></label>
+                </div>
+                <input class="form-control" type="number" asp-for="RunTime" placeholder="RunTime" required>
+            </div>
+
+            <div class="form-group input-group" form-group-lg>
+                <div class="input-group-prepend">
+                    <label class="input-group-text" id="inputGroupPrepend" asp-for="Genre"></label>
+                </div>
+                <input class="form-control" type="text" asp-for="Genre" placeholder="Genre" required>
+            </div>
+
+            <div class="form-group input-group" form-group-lg>
+                <div class="input-group-prepend">
+                    <label class="input-group-text" id="inputGroupPrepend" asp-for="Director"></label>
+                </div>
+                <input class="form-control" type="number" asp-for="Director" placeholder="RunTime" required>
+            </div>
+
+            <div class="form-group input-group" form-group-lg>
+                <div class="input-group-prepend">
+                    <label class="input-group-text" id="inputGroupPrepend" asp-for="Actors"></label>
+                </div>
+                <input class="form-control" type="text" asp-for="Actors" placeholder="Genre" required>
+            </div>
+
+
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" id="inputGroupPrepend" asp-for="StarRating">Star Rating</label>
+                </div>
+                <select class="custom-select" name="starRating" required>
+                    <option value="">Please Select a Star Rating</option>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <div class="invalid-feedback">Please Select a star rating</div>
+            </div>
+
+            <button class="form-control" type="submit" value="CreateMovie">Create Movie</button>
+        </form>
+    </div>
+</div>
+@section Scripts
+{
+    <script type="text/javascript" src="~/js/ValidateEmptyFields.js"></script>
+}
