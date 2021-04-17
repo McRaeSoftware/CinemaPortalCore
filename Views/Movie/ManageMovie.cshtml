@@ -16,19 +16,26 @@
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Title</th>
-                    <th scope="col">Update</th>
-                    <th scope="col">Delete</th>
+                    <th scope="col">Releast Date</th>
+                    <th scope="col">Star Rating</th>
+                    <th scope="col">Options</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var movie in Model)
                 {
-                    <tr>
-                        <td>@movie.Movie_ID</td>
-                        <td>@movie.Title</td>
-                        <td> <button class="btn btn-warning" href=''>UPDATE</button> </td>
-                        <td> <button class="btn btn-danger" href=''>DELETE</button> </td>
-                    </tr>
+                <tr>
+                    <td>@movie.Movie_ID</td>
+                    <td>@movie.Title</td>
+                    <td>@movie.ReleaseDate</td>
+                    <td>@movie.StarRating</td>
+                    <td>
+                        <div class="btn-group" role="group">
+                            <a class='btn btn-primary mx-1' asp-controller="Movie" asp-action="UpdateMovie" asp-route-id="@movie.Movie_ID">UPDATE</a>
+                            <a class='btn btn-danger mx-1' asp-controller="Movie" asp-action="DeleteMovie" asp-route-id="@movie.Movie_ID">DELETE</a>
+                        </div>
+                    </td>
+                </tr>
                 }
             </tbody>
 
