@@ -49,34 +49,11 @@
                                     <a class="btn btn-warning mx-1" asp-controller="Employee" asp-action="DemoteEmployee" asp-route-id="@employee.Employee_ID">DEMOTE</a>
                                 }
                             }
-                            <a class='btn btn-danger mx-1' asp-controller="Employee" asp-action="DeleteEmployee" asp-route-id="@employee.Employee_ID">DELETE</a> 
+                            <a class='btn btn-primary mx-1' asp-controller="Employee" asp-action="UpdateEmployee" asp-route-id="@employee.Employee_ID">UPDATE</a>
+                            <a class='btn btn-danger mx-1' asp-controller="Employee" asp-action="DeleteEmployee" asp-route-id="@employee.Employee_ID">DELETE</a>
                         </div>
                     </td>
                 </tr>
-
-
-                @*Attempting to make a modal instead of a new screen but IEnumerable is read only and not sure it will allow*@
-                
-                    @*<div class="modal fade" id="@("delete" + employee.Employee_ID.ToString() + "Modal")" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content bg-dark">
-                            <form method="POST" asp-action="DeleteEmployee">
-
-                                <div class="modal-header">
-                                   <h5 class="modal-title" id="deleteModalLabel">Are You Sure?</h5>
-                                  <button type="button" class="close btn btn-dark" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                </div>
-                                <div class="modal-body">
-                                    <p>Are you sure you want to delete @employee.FirstName @employee.Surname ?<p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-outline-warning" data-dismiss="modal">KEEP</button>
-                                    <a class="btn btn-outline-danger" type="submit" value="DeleteEmployee" asp-controller="Employee" asp-action="DemoteEmployee" asp-route-Id="@employee.Employee_ID">DELETE</a>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>*@
 
                 }
             </tbody>
