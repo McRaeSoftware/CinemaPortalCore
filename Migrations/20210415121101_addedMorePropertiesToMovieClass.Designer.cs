@@ -3,14 +3,16 @@ using CinemaPortalCore.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CinemaPortalCore.Migrations
 {
     [DbContext(typeof(CinemaPortalCoreDbContext))]
-    partial class CinemaPortalCoreDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210415121101_addedMorePropertiesToMovieClass")]
+    partial class addedMorePropertiesToMovieClass
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

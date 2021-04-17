@@ -13,14 +13,19 @@ namespace CinemaPortalCore.Models
         public int Employee_ID { get; set; }
 
         [DisplayName("First name")]
+        [Required]
         public string FirstName { get; set; }
 
+        [Required]
         public string Surname { get; set; }
 
+        [Required]
         public string Username { get; set; }
 
+        [Required]
         public string Jobrole { get; set; }
 
+        [Required]
         public string Password { get; set; }
     }
 }

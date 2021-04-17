@@ -28,11 +28,49 @@ namespace CinemaPortalCore.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult CreateEmployee(Employee employee)
         {
-            _database.Employees.Add(employee);
-            _database.SaveChanges();
-
+            if (ModelState.IsValid)
+            {
+                _database.Employees.Add(employee);
+                _database.SaveChanges();
+            }
             return View();
         }
+
+        // Get employee details to delete
+        public IActionResult DeleteEmployee(int? id)
+        {
+            if(id == null || id == 0)
+            {
+                return NotFound();
+            }
+
+            var employee = _database.Employees.Find(id);
+            if (employee == null)
+            {
+                return NotFound();
+            }
+
+            return View(employee);
+        }
+
+        // Delete employee details after post from delete page
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeleteEmployeePOST(int Employee_ID)
+        {
+            var employee = _database.Employees.Find(Employee_ID);
+
+            if(employee == null)
+            {
+                return NotFound();
+            }
+
+            _database.Employees.Remove(employee);
+            _database.SaveChanges();
+
+            return RedirectToAction("ManageEmployee");
+        }
+
 
         public IActionResult ManageEmployee()
         {

@@ -14,6 +14,11 @@
         <h1 class="text-center mt-4 mb-4">Create Employee page</h1>
     </div>
 
+    @*This div displays any validation errors to the user*@
+    <div asp-validation-summary="All" class="row text-danger">
+
+    </div>
+
     <!-- Form -->
     <form class="form-group needs-validation" asp-action="CreateEmployee" method="POST" novalidate>
 
@@ -62,6 +67,7 @@
                 You cannot Leave This field Empty.
             </div>
         </div>
+
         <div class="form-group input-group">
             <div class="input-group-prepend">
                 <label class="input-group-text" id="inputGroupPrepend" asp-for="Password"></label>

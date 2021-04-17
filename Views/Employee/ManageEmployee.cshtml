@@ -15,25 +15,69 @@
         <table class="table border border-dark text-center">
             <thead class="thead-dark">
                 <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Username</th>
+                    <th scope="col">Surname</th>
+                    <th scope="col">First Name</th>
                     <th scope="col">Jobrole</th>
-                    <th scope="col">Promote</th>
-                    <th scope="col">Demote</th>
-                    <th scope="col">Delete</th>
+                    <th scope="col">Options</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach(var employee in Model)
+                @foreach (var employee in Model)
                 {
-                    <tr>
-                        <td>@employee.Employee_ID</td>
-                        <td>@employee.Username</td>
-                        <td>@employee.Jobrole</td>
-                        <td> <button class="btn btn-success" href=''>PROMOTE</button> </td>
-                        <td> <button class="btn btn-warning" href=''>DEMOTE</button> </td>
-                        <td> <button class="btn btn-danger" href=''>DELETE</button> </td>
-                    </tr>
+                <tr>
+                    <td>@employee.Surname</td>
+                    <td>@employee.FirstName</td>
+                    <td>@employee.Jobrole</td>
+                    <td>
+                        <div class="btn-group" role="group">
+
+                            @{if (employee.Jobrole == "manager")
+                                {
+                                    <a class="btn btn-secondary mx-1 disabled">PROMOTE</a>
+                                }
+                                else
+                                {
+                                    <a class="btn btn-success mx-1" asp-controller="Employee" asp-action="PromoteEmployee" asp-route-id="@employee.Employee_ID">PROMOTE</a>
+                                }
+
+                                if (employee.Jobrole == "employee")
+                                {
+                                    <a class="btn btn-secondary mx-1 disabled">DEMOTE</a>
+                                }
+                                else
+                                {
+                                    <a class="btn btn-warning mx-1" asp-controller="Employee" asp-action="DemoteEmployee" asp-route-id="@employee.Employee_ID">DEMOTE</a>
+                                }
+                            }
+                            <a class='btn btn-danger mx-1' asp-controller="Employee" asp-action="DeleteEmployee" asp-route-id="@employee.Employee_ID">DELETE</a> 
+                        </div>
+                    </td>
+                </tr>
+
+
+                @*Attempting to make a modal instead of a new screen but IEnumerable is read only and not sure it will allow*@
+                
+                    @*<div class="modal fade" id="@("delete" + employee.Employee_ID.ToString() + "Modal")" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content bg-dark">
+                            <form method="POST" asp-action="DeleteEmployee">
+
+                                <div class="modal-header">
+                                   <h5 class="modal-title" id="deleteModalLabel">Are You Sure?</h5>
+                                  <button type="button" class="close btn btn-dark" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Are you sure you want to delete @employee.FirstName @employee.Surname ?<p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-outline-warning" data-dismiss="modal">KEEP</button>
+                                    <a class="btn btn-outline-danger" type="submit" value="DeleteEmployee" asp-controller="Employee" asp-action="DemoteEmployee" asp-route-Id="@employee.Employee_ID">DELETE</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>*@
+
                 }
             </tbody>
 
@@ -45,8 +89,5 @@
     {
         <p>No Employees to manage</p>
     }
-
-
-
     </div>
 

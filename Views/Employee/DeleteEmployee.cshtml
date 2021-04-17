@@ -1,0 +1,36 @@
+﻿@model CinemaPortalCore.Models.Employee
+
+<div class="container">
+
+    <div class="page-header">
+        <br>
+        <h1 class="text-center mt-4 mb-4">Are You Sure?</h1>
+    </div>
+</div>
+
+<form class="form-group" asp-action="DeleteEmployeePOST" method="POST">
+
+    <input asp-for="Employee_ID" hidden />
+
+    <div class="form-row">
+
+        <div class="mb-3 form-group input-group">
+
+            <input class="form-control" disabled asp-for="FirstName" />
+            <input class="form-control" disabled asp-for="Surname" />
+
+        </div>
+    </div>
+    
+    <div class="form-row form-group input-group">
+        <input class="form-control" disabled asp-for="Username" />
+    </div>
+    <div class="form-row form-group input-group">
+        <input class="form-control" disabled asp-for="Jobrole" />
+    </div>
+    <div class="form-row">
+        <a class="form-control btn btn-outline-success mb-2" asp-action="ManageEmployee">KEEP</a>
+        <input class="form-control btn btn-outline-danger" type="submit" value="DELETE"/>
+    </div>
+    
+</form>
