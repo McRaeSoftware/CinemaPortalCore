@@ -1,0 +1,77 @@
+﻿@model CinemaPortalCore.Models.Customer
+@{
+    ViewData["Title"] = "UpdateCustomer";
+}
+
+<title>Update Customer</title>
+
+<!-- Container for the Form -->
+<div class="container">
+
+    <div class="page-header">
+        <br>
+        <img src="~/images/register.png" class="mx-auto d-block">
+        <h1 class="text-center mt-4 mb-4">Update Customer page</h1>
+    </div>
+
+    @*This div displays any validation errors to the user*@
+    <div asp-validation-summary="All" class="row text-danger">
+
+    </div>
+
+    <!-- Form -->
+    <form class="form-group needs-validation" asp-action="UpdateCustomer" method="POST" novalidate>
+
+        <input asp-for="Customer_ID" hidden />
+
+        <div class="form-row">
+            <div class="col-6 mb-3 form-group input-group">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" id="inputGroupPrepend" asp-for="FirstName"></label>
+                </div>
+                <input class="form-control" id="validationTooltip" asp-for="FirstName" required>
+                <div class="invalid-feedback">
+                    You cannot Leave This field Empty.
+                </div>
+            </div>
+            <div class="col-6 form-group input-group">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" id="inputGroupPrepend" asp-for="Surname"></label>
+                </div>
+                <input class="form-control" type="text" name="surname" asp-for="Surname" required>
+                <div class="invalid-feedback">
+                    You cannot Leave This field Empty.
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <label class="input-group-text" id="inputGroupPrepend" asp-for="Username"></label>
+            </div>
+            <input class="form-control" type="text" name="username" asp-for="Username" required>
+            <div class="invalid-feedback">
+                You cannot Leave This field Empty.
+            </div>
+        </div>
+
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <label class="input-group-text" id="inputGroupPrepend" asp-for="Password"></label>
+            </div>
+            <input class="form-control" type="password" name="password" asp-for="Password" required>
+            <div class="invalid-feedback">
+                You cannot Leave This field Empty.
+            </div>
+        </div>
+
+        <button class="form-control" type="submit" value="UpdateCustomer">Update Customer</button>
+    </form>
+    <!-- End Form -->
+
+</div>
+
+@section Scripts
+{
+    <script type="text/javascript" src="~/js/ValidateEmptyFields.js"></script>
+}

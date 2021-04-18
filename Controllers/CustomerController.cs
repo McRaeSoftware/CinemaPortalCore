@@ -40,5 +40,34 @@ namespace CinemaPortalCore.Controllers
             }
             return View();
         }
+
+        public IActionResult UpdateCustomer(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+
+            var customer = _database.Customers.Find(id);
+
+            if (customer == null)
+            {
+                return NotFound();
+            }
+
+            return View(customer);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult UpdateCustomer(Customer customer)
+        {
+            if (ModelState.IsValid)
+            {
+                _database.Customers.Update(customer);
+                _database.SaveChanges();
+            }
+            return RedirectToAction("ManageCustomer");
+        }
     }
 }
