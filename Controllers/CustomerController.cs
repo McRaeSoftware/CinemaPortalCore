@@ -23,6 +23,12 @@ namespace CinemaPortalCore.Controllers
             return View(customerList);
         }
 
+        // Create Employee View
+        public IActionResult CreateCustomer()
+        {
+            return View();
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult CreateCustomer(Customer customer)
