@@ -1,0 +1,38 @@
+﻿@model CinemaPortalCore.Models.Movie
+
+<div class="container">
+
+    <div class="page-header">
+        <br>
+        <h1 class="text-center mt-4 mb-4">Are You Sure?</h1>
+    </div>
+</div>
+
+<form class="form-group" asp-action="DeleteMoviePOST" method="POST">
+
+    <input asp-for="Movie_ID" hidden />
+
+    <div class="form-row">
+
+        <div class="form-group input-group disabled" form-group-lg>
+            <div class="input-group-prepend">
+                <label class="input-group-text" id="inputGroupPrepend" asp-for="Title"></label>
+            </div>
+            <input class="form-control" type="text" asp-for="Title">
+        </div>
+
+        <div class="form-group input-group disabled" form-group-lg>
+            <div class="input-group-prepend">
+                <label class="input-group-text" id="inputGroupPrepend" asp-for="ReleaseDate"></label>
+            </div>
+            <input class="form-control" type="text" asp-for="ReleaseDate"/>
+        </div>
+
+
+    </div>
+        <div class="form-row">
+            <a class="form-control btn btn-outline-success mb-2" asp-action="ManageMovie">KEEP</a>
+            <input class="form-control btn btn-outline-danger" type="submit" value="DELETE" />
+        </div>
+
+</form>

@@ -15,10 +15,10 @@ namespace CinemaPortalCore.Models
         [Required]
         public string Title { get; set; }
 
-        [Required]
+        // made this field nullable as there will be no mp4 files uploaded
         public string Video { get; set; }
 
-        [Required]
+        // made this field nullable as there will be no images uploaded
         public string Image { get; set; }
 
         [Required]

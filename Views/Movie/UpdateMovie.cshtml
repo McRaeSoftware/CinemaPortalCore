@@ -1,18 +1,18 @@
-﻿@*
-    Description: form used to insert movies into the database.
-
-    Author: David McRae
-*@
-@model CinemaPortalCore.Models.Movie
+﻿@model CinemaPortalCore.Models.Movie
 
 <div class="container">
     <div class="page-header">
-        <h1>Create Movie Page</h1>
+        <h1>Update Movie Page</h1>
     </div>
 
     <div class="container">
 
-        <form class="form-group needs-validation" method="POST" asp-action="CreateMovie" novalidate>
+        @*This div displays any validation errors to the user*@
+        <div asp-validation-summary="All" class="row text-danger"></div>
+
+        <form class="form-group needs-validation" method="POST" asp-action="UpdateMovie" novalidate>
+
+            <input asp-for="Movie_ID" hidden />
 
             <div class="form-group input-group" form-group-lg>
                 <div class="input-group-prepend">
@@ -110,10 +110,10 @@
                 <div class="invalid-feedback">Please Select a star rating</div>
             </div>
 
-            <button class="form-control" type="submit" value="CreateMovie">Create Movie</button>
+            <button class="form-control" type="submit" value="UpdateMovie">Update Movie</button>
         </form>
+        </div>
     </div>
-</div>
 @section Scripts
 {
     <script type="text/javascript" src="~/js/ValidateEmptyFields.js"></script>
