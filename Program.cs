@@ -11,8 +11,11 @@ namespace CinemaPortalCore
 {
     public class Program
     {
+        public static bool LoggedIn;
+
         public static void Main(string[] args)
         {
+            LoggedIn = false;
             CreateHostBuilder(args).Build().Run();
         }
 

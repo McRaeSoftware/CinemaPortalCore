@@ -35,11 +35,11 @@ namespace CinemaPortalCore.Controllers
                 {
                     // The select is to save the data to a session later.
                     // for now im just using a logged in boolean
-                    var result = _database.Employees.Where(e => e.Username == username && e.Password == password)
-                        .Select(e => new { e.Employee_ID, e.Username, e.Jobrole}).ToHashSet();
+                    var result = _database.Employees.Where(e => e.Username == username && e.Password == password);//.Select(e => new { e.Employee_ID, e.Username, e.Jobrole}).ToHashSet();
 
                     if (result.Count() > 0)
                     {
+                        Program.LoggedIn = true;
                         return RedirectToAction("Navigation");
                     }
                     else
@@ -52,6 +52,12 @@ namespace CinemaPortalCore.Controllers
             {
                 return BadRequest();
             }
+        }
+
+        public IActionResult Logout()
+        {
+            Program.LoggedIn = false;
+            return RedirectToAction("Index");
         }
 
         public IActionResult Privacy()
