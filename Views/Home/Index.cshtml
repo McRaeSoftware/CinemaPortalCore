@@ -1,8 +1,46 @@
-﻿@{
+﻿@model CinemaPortalCore.Models.Employee
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container">
+
+    <div class="container">
+        <div class="page-header">
+            <br>
+            <img src="images/login.png" class="mx-auto d-block">
+            <h1 class="text-center mt-4">Employee Login</h1>
+        </div>
+
+        <form class="form-group needs-validation" asp-action="Index" method="POST" novalidate>
+
+
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" id="inputGroupPrepend" asp-for="Username"></label>
+                </div>
+                <input class="form-control" type="text" name="username" asp-for="Username" placeholder="Username" required>
+                <div class="invalid-feedback">
+                    You cannot Leave This field Empty.
+                </div>
+            </div>
+
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" id="inputGroupPrepend" asp-for="Password"></label>
+                </div>
+                <input class="form-control" type="password" name="password" asp-for="Password" placeholder="Password" required>
+                <div class="invalid-feedback">
+                    You cannot Leave This field Empty.
+                </div>
+            </div>
+
+            <button class="form-control" type="submit" value="Login">Login</button>
+        </form>
+
+    </div>
 </div>
+@section Scripts
+{
+    <script type="text/javascript" src="~/js/ValidateEmptyFields.js"></script>
+}
