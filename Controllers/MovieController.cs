@@ -17,6 +17,7 @@ namespace CinemaPortalCore.Controllers
             _database = database;
         }
 
+
         public IActionResult CreateMovie()
         {
             return View();
@@ -36,6 +37,36 @@ namespace CinemaPortalCore.Controllers
         {
             IEnumerable<Movie> movieList = _database.Movies;
             return View(movieList);
+        }
+
+        // Get movie details for update
+        public IActionResult UpdateMovie(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+
+            var movie = _database.Movies.Find(id);
+            if (movie == null)
+            {
+                return NotFound();
+            }
+
+            return View(movie);
+        }
+
+        // Update movie details after post from updateMovie
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult UpdateMovie(Movie movie)
+        {
+            if (ModelState.IsValid)
+            {
+                _database.Movies.Update(movie);
+                _database.SaveChanges();
+            }
+            return View();
         }
     }
 }
