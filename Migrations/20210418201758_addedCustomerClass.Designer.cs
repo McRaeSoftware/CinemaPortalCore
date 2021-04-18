@@ -3,14 +3,16 @@ using CinemaPortalCore.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CinemaPortalCore.Migrations
 {
     [DbContext(typeof(CinemaPortalCoreDbContext))]
-    partial class CinemaPortalCoreDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210418201758_addedCustomerClass")]
+    partial class addedCustomerClass
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
