@@ -69,5 +69,41 @@ namespace CinemaPortalCore.Controllers
             }
             return RedirectToAction("ManageCustomer");
         }
+
+        // Get customer details to delete
+        public IActionResult DeleteCustomer(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+
+            var customer = _database.Customers.Find(id);
+
+            if (customer == null)
+            {
+                return NotFound();
+            }
+
+            return View(customer);
+        }
+
+        // Delete customer details after post from delete page
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeleteCustomerPOST(int Customer_ID)
+        {
+            var customer = _database.Customers.Find(Customer_ID);
+
+            if (customer == null)
+            {
+                return NotFound();
+            }
+
+            _database.Customers.Remove(customer);
+            _database.SaveChanges();
+
+            return RedirectToAction("ManageCustomer");
+        }
     }
 }
