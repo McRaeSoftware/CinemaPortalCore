@@ -40,8 +40,6 @@ namespace CinemaPortalCore.Controllers
 
                     if (result.Count() > 0)
                     {
-                        Program.loggedIn = true;
-
                         return RedirectToAction("Navigation");
                     }
                     else

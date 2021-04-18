@@ -50,7 +50,7 @@ namespace CinemaPortalCore.Controllers
                 return NotFound();
             }
 
-            return View(employee);
+            return RedirectToAction("ManageEmployee");
         }
 
         // Update employee details after post from updateEmployee
