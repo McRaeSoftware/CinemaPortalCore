@@ -19,5 +19,7 @@ namespace CinemaPortalCore.Data
         public DbSet<Movie> Movies { get; set; }
 
         public DbSet<Customer> Customers { get; set; }
+
+        public DbSet<Ticket> Tickets { get; set; }
     }
 }
