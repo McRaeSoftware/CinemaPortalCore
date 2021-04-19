@@ -50,7 +50,7 @@ namespace CinemaPortalCore.Controllers
             }
             catch
             {
-                return BadRequest();
+                return Error();
             }
         }
 

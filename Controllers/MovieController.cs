@@ -17,7 +17,6 @@ namespace CinemaPortalCore.Controllers
             _database = database;
         }
 
-
         public IActionResult CreateMovie()
         {
             return View();

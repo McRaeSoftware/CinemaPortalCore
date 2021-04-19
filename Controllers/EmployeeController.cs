@@ -17,6 +17,13 @@ namespace CinemaPortalCore.Controllers
             _database = database;
         }
 
+
+        public IActionResult ManageEmployee()
+        {
+            IEnumerable<Employee> employeeList = _database.Employees;
+            return View(employeeList);
+        }
+
         // Create Employee View
         public IActionResult CreateEmployee()
         {
@@ -50,7 +57,7 @@ namespace CinemaPortalCore.Controllers
                 return NotFound();
             }
 
-            return RedirectToAction("ManageEmployee");
+            return View(employee);
         }
 
         // Update employee details after post from updateEmployee
@@ -138,13 +145,6 @@ namespace CinemaPortalCore.Controllers
             _database.SaveChanges();
 
             return RedirectToAction("ManageEmployee");
-        }
-
-
-        public IActionResult ManageEmployee()
-        {
-            IEnumerable<Employee> employeeList = _database.Employees;
-            return View(employeeList);
         }
     }
 }

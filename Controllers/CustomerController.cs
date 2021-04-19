@@ -23,7 +23,7 @@ namespace CinemaPortalCore.Controllers
             return View(customerList);
         }
 
-        // Create Employee View
+        // Create Customer View
         public IActionResult CreateCustomer()
         {
             return View();
@@ -70,7 +70,7 @@ namespace CinemaPortalCore.Controllers
             return RedirectToAction("ManageCustomer");
         }
 
-        // Get customer details to delete
+        // Get customer details before Deleting
         public IActionResult DeleteCustomer(int? id)
         {
             if (id == null || id == 0)
